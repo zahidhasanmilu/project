@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container-fluid mt-2">
+ <div class="row">
+
+  <div class="col-lg-3">
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active">
+        Cras justo odio
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+      <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+      <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+    </div>
+  </div>
+
+
+  <div id="products" class="col-lg-9">
+    <div class="row">
+      {% for items in item %}
+      <div class="card mx-auto mb-2" style="width: 18rem;">
+          <img src="{{items.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{items.name}}</h5>
+            <p class="card-text">{{items.price}}</p>
+            <p class="card-text">{{items.catagory}}</p>
+            <a href="#" class="btn btn-primary">Add To Cart</a>
+          </div>
+      </div>
+      {% endfor %}        
+    </div>
+  </div>
+
+
+ </div>
+</div>
+    
+{% endblock content %}
+        
+ <!--start Content-->
