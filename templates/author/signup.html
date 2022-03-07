@@ -7,8 +7,12 @@
 <div class="container">
     <div class=" p-4">
         <div class="col-lg-5 mx-auto border rounded p-3">
+            {% if invalid %}
+            <div class="alert alert-danger" role="alert"><h3>Invaild information</h3></div>
+            {% endif %}
             <h2 class="alert alert-dark border rounded">Create An Account</h2>
-            <form>
+            <form action="" method="post">
+                {% csrf_token %}
                 <div class="mb-3 ">
                 <label for="for_fname"  class="fname">First Name</label>
                 <input type="text"  name="fname" placeholder="Enter First Name" class="form-control form-control-sm" id="for_fname">
@@ -33,10 +37,11 @@
                 <label for="exampleInputPassword" class="form-label">Password</label>
                 <input type="password" name="password" placeholder="********"  class="form-control form-control-sm" id="exampleInputPassword">
                 </div>
+
                 <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input type="password"  name="passwordC" placeholder="Retype to Confirm Password" class="form-control form-control-sm" id="exampleInputPassword1">
-                </div>
+                    <label for="passwordC" class="form-label">Confirm Password</label>
+                    <input type="password" name="passwordC" placeholder="********"  class="form-control form-control-sm" id="passwordC">
+                    </div>
 
                 <button type="submit" name="submit" class="btn btn-info">Create An Account</button>
             </form>

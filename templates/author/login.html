@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container">
+    <div class=" p-4">
+        <div class="col-lg-5 mx-auto border rounded p-3">
+            {% if invalid %}
+            <div class="alert alert-danger" role="alert"><h3>Invaild information</h3></div>
+            {% endif %}
+            <h2 class="alert alert-dark border rounded">Login Here</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="for_user_name" class="form-label">Username</label>
+                    <input type="text" name="username" placeholder="Enter Username" class="form-control form-control-sm" id="for_user_name">
+                </div>
+
+                <div class="mb-3">
+                <label for="exampleInputPassword" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="********"  class="form-control form-control-sm" id="exampleInputPassword">
+                </div>
+
+                <input type="submit" class="btn btn-info" value="Login">    
+            </form>
+        </div>
+    </div>
+<div>
+
+{% endblock content %}
