@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container">
+    <div class=" p-4">
+        <div class="col-lg-5 mx-auto border rounded p-3">
+            <h2 class="alert alert-dark border rounded">Create An Account</h2>
+            <form>
+                <div class="mb-3 ">
+                <label for="for_fname"  class="fname">First Name</label>
+                <input type="text"  name="fname" placeholder="Enter First Name" class="form-control form-control-sm" id="for_fname">
+                </div>
+
+                <div class="mb-3">
+                    <label for="for_lname" class="lname">Last Name</label>
+                    <input type="text" name="lname" placeholder="Enter last Name" class="form-control form-control-sm" id="for_lname">
+                </div>
+
+                <div class="mb-3">
+                    <label for="for_user_name" class="form-label">Username</label>
+                    <input type="text" name="username" placeholder="Enter Username" class="form-control form-control-sm" id="for_user_name">
+                </div>
+
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter Valid Email"  id="exampleInputEmail1" >
+                </div>
+
+                <div class="mb-3">
+                <label for="exampleInputPassword" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="********"  class="form-control form-control-sm" id="exampleInputPassword">
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password"  name="passwordC" placeholder="Retype to Confirm Password" class="form-control form-control-sm" id="exampleInputPassword1">
+                </div>
+
+                <button type="submit" name="submit" class="btn btn-info">Create An Account</button>
+            </form>
+        </div>
+    </div>
+<div>
+
+{% endblock content %}
