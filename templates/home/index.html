@@ -6,21 +6,21 @@
 {% block content %}
 <div class="container-fluid mt-2">
  <div class="row">
+  
 
-  <div class="col-lg-3">
+  <div class="col-lg-3 mx-auto">
+    <div class="list-group">    
+      <a href="/" class="list-group-item list-group-item-action">All Catagories</a>
+    </div>
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action active">
-        Cras justo odio
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-      <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-      <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-      <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+      {% for catagory in catagories %}
+      <a href="/?catagory={{ catagory.id }}" class="list-group-item list-group-item-action">{{catagory.name }}</a>
+      {% endfor %}
     </div>
   </div>
 
 
-  <div id="products" class="col-lg-9">
+  <div id="products" class="col-lg-9 mx-auto">
     <div class="row">
       {% for items in item %}
       <div class="card mx-auto mb-2" style="width: 18rem;">
