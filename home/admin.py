@@ -3,17 +3,14 @@ from .models.product import Product
 from .models.catagory import Catagory
 
 
-
-
-
-
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name','price','catagory','description','image',]
+    list_display = ['name', 'price', 'catagory',
+                    'description', 'image', 'delivery', 'stock', ]
+
 
 class CatagoryAdmin(admin.ModelAdmin):
-    list_display = ['name',]
+    list_display = ['name', ]
 
-    
-admin.site.register(Product,ProductAdmin)
-admin.site.register(Catagory,CatagoryAdmin)
 
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Catagory, CatagoryAdmin)
