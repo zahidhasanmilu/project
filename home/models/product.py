@@ -1,8 +1,5 @@
-from pyexpat import model
 from django.db import models
-from django.forms import IntegerField
 from home.models.catagory import Catagory
-#from home.models.subcatagory import subCatagory
 
 
 class Product(models.Model):
