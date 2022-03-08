@@ -26,7 +26,7 @@ def signup(request):
 
 
 
-def login(request):
+def signin(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -35,13 +35,13 @@ def login(request):
             password = password
         )
         if user:
-            login(request)
-        
-        print(username,password)
+            login(request,user)
+            return redirect('home')
+        return render(request,'author/login.html', context={'invalid':True})    
     return render(request,'author/login.html')
 
 
-def logout(request):
+def signout(request):
     logout(request)
     return redirect('home')
 
