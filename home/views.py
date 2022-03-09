@@ -7,16 +7,45 @@ from home.models.product import Product
 # Create your views here.
 def home(request):
     products = Product.get_all_products()
-    catagory = Catagory.get_all_catagories()    
+    catagory = Catagory.get_all_catagories()
     catagoryId = request.GET.get('catagory')
-    
-    if catagoryId :
+
+    if catagoryId:
         products = Product.get_all_products_by_catagories(catagoryId)
     else:
         products = Product.get_all_products()
-    
-    return render(request,'home/index.html', context={'item':products, 'catagories':catagory})
+
+    return render(request, 'home/index.html', context={'item': products, 'catagories': catagory})
 
 
-def signup(request):
-    return render(request, 'home/signup.html')
+def trending(request):
+    products = Product.get_all_products()
+    catagory = Catagory.get_all_catagories()
+    catagoryId = request.GET.get('catagory')
+
+    if catagoryId:
+        products = Product.get_all_products_by_catagories(catagoryId)
+    else:
+        products = Product.get_all_products()
+
+    return render(request, 'home/trending.html', context={'product': products, 'catagories': catagory})
+
+
+def search(request):
+    keywords = request.GET.get('keywords').split(' ')
+    results = Product.objects.filter(title__icontains=keywords[0])
+    results = results.union(Product.objects.filter(
+        description__icontains=keywords[0]))
+
+    for key in keywords:
+        results = Product.objects.filter(title__icontains=key)
+        results = results.union(Product.objects.filter(
+            description__icontains=key))
+
+    return render(request, 'home/search_results.html', context={'products': results})
+
+
+def details(request, id):
+    items = Product.objects.filter(id=id).first()
+
+    return render(request, 'home/porduct_details.html', context={'items': items})
