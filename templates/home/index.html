@@ -8,26 +8,44 @@
  <div class="row">
   
 
-  <div class="col-lg-3 mx-auto">
+  <div class="col-lg-2 mx-auto">
     <div class="list-group">    
-      <a href="/" class="list-group-item list-group-item-action">All Catagories</a>
+      <a href="/" class="list-group-item list-group-item-action list-group-item-success ">All Catagories</a>
     </div>
     <div class="list-group">
       {% for catagory in catagories %}
       <a href="/?catagory={{ catagory.id }}" class="list-group-item list-group-item-action">{{catagory.name }}</a>
       {% endfor %}
     </div>
+
+    <hr>
+
+  <!--Search option-->
+    <div class="search_content mt-5">
+      <form method="GET" action="{% url 'search' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" class="form-control" id="search" name="keywords"  placeholder="Enter here for search">
+        </div>
+        <button type="submit" class="btn btn-info mt-1">Search</button>
+      </form>
+    </div>
+ <!--End Search option-->
+
   </div>
+  
 
 
-  <div id="products" class="col-lg-9 mx-auto">
+<!--Right side start-->
+  <div id="products" class="col-lg-10 mx-auto">
+    
     <div class="row">
       {% for items in item %}
       <div class="card mx-auto mb-2" style="width: 18rem;">
           <img src="{{items.image.url}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{{items.name}}</h5>
-            <p class="card-text">{{items.price}}</p>
+            <a href="{% url 'product_details' items.id %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
+            <p class="card-text">BDT. {{items.price}}</p>
             <p class="card-text">{{items.catagory}}</p>
             <a href="#" class="btn btn-primary">Add To Cart</a>
           </div>
