@@ -4,8 +4,8 @@ from .models.catagory import Catagory
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'catagory',
-                    'description', 'image', 'delivery', 'stock', ]
+    list_display = ['title', 'price', 'catagory',
+                    'description', 'image', 'delivery', 'stock', 'quantiles']
 
 
 class CatagoryAdmin(admin.ModelAdmin):
