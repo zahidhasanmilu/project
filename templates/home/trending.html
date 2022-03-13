@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container-fluid mt-2">
+ <div class="row">
+  
+ <!--trending Catagory-->
+  <div class="col-lg-2 mx-auto">
+    <div class="list-group">      
+      <a href="/trending/" class="list-group-item list-group-item-success  list-group-item-action"> Trending Products</a>      
+  </div>
+    
+  <div class="list-group">
+      {% for catagory in catagories %}    
+    <a href="/trending/?catagory={{ catagory.pid }}" class="list-group-item list-group-item-action">{{catagory.name }}</a>
+    {% endfor %}  
+  </div>   
+  <!--trending Catagory end-->
+    <!--Search option-->
+  <div class="search_content mt-5">
+    <form method="GET" action="{% url 'search' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" id="search" name="keywords"  placeholder="Enter here for search">
+      </div>
+      <button type="submit" class="btn btn-info mt-1">Search</button>
+    </form>
+  </div>
+ <!--End Search option-->
+  </div>
+  
+  
+ 
+
+  <div id="products" class="col-lg-10 mx-auto">
+    <div class="row">
+      {% for items in product %}
+      <div class="card mx-auto mb-2" style="width: 18rem;">
+          <img src="{{items.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
+            <p class="card-text">{{items.price}}</p>
+            <p class="card-text">BDT. {{items.catagory}}</p>
+            <a href="#" class="btn btn-primary">Add To Cart</a>
+          </div>
+      </div>
+      {% endfor %}        
+    </div>
+  </div>
+
+
+ </div>
+</div>
+    
+{% endblock content %}
+        
+ <!--start Content-->

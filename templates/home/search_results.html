@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container-fluid mt-2">
+ <div class="row">
+  
+
+  <div class="col-lg-2 mx-auto">
+ 
+  <!--Search option-->
+  <div class="search_content mt-5">
+    <form method="GET" action="{% url 'search' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" id="search" name="keywords"  placeholder="Enter here for search">
+      </div>
+      <button type="submit" class="btn btn-info mt-1">Search</button>
+    </form>
+  </div>
+ <!--End Search option-->
+  </div>
+  
+
+
+<!--Right side start-->
+  <div id="products" class="col-lg-10 mx-auto">
+    <h3 class="text-center">Search Result</h3>
+    <div class="row">
+      {% for items in products %}
+      <div class="card mx-auto mb-2" style="width: 18rem;">
+          <img src="{{items.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{items.title}}</h5>
+            <p class="card-text">BDT. {{items.price}}</p>
+            <p class="card-text">{{items.catagory}}</p>
+            <a href="#" class="btn btn-primary">Add To Cart</a>
+          </div>
+      </div>
+      {% endfor %}        
+    </div>
+  </div>
+
+
+ </div>
+</div>
+    
+{% endblock content %}
+        
+ <!--start Content-->

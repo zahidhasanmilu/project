@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
+
+
 def signup(request):
     if request.method == "POST":
         fname = request.POST['fname']
@@ -13,17 +15,16 @@ def signup(request):
         passwordC = request.POST['passwordC']
         if password == passwordC:
             user = User.objects.create_user(
-                first_name = fname,
-                last_name = lname,
-                username = username,
-                email = email,
-                password = password
+                first_name=fname,
+                last_name=lname,
+                username=username,
+                email=email,
+                password=password
             )
             user.save()
-            return redirect('home')       
-        return render (request,'author/signup.html', context={'invalid':True})        
-    return render(request,'author/signup.html')
-
+            return redirect('home')
+        return render(request, 'author/signup.html', context={'invalid': True})
+    return render(request, 'author/signup.html')
 
 
 def signin(request):
@@ -31,17 +32,16 @@ def signin(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(
-            username = username,
-            password = password
+            username=username,
+            password=password
         )
         if user:
-            login(request,user)
+            login(request, user)
             return redirect('home')
-        return render(request,'author/login.html', context={'invalid':True})    
-    return render(request,'author/login.html')
+        return render(request, 'author/login.html', context={'invalid': True})
+    return render(request, 'author/login.html')
 
 
 def signout(request):
     logout(request)
     return redirect('home')
-

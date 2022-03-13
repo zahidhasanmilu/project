@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'author',
-  
-    
+    'cart',
+
+
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "home/static",
+]
 
 MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/image/download/'

@@ -44,7 +44,7 @@
       <div class="card mx-auto mb-2" style="width: 18rem;">
           <img src="{{items.image.url}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <a href="{% url 'product_details' items.id %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
+            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
             <p class="card-text">BDT. {{items.price}}</p>
             <p class="card-text">{{items.catagory}}</p>
             <a href="#" class="btn btn-primary">Add To Cart</a>
