@@ -14,7 +14,6 @@ def home(request):
         products = Products.get_all_products_by_catagories(catagoryId)
     else:
         products = Products.get_all_products()
-
     return render(request, 'home/index.html', context={'item': products, 'catagories': catagory})
 
 
