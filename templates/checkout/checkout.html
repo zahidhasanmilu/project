@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+ 
+
+
+
+{% block content %}
+<div class="container mt-2">
+ <div class="row">
+
+ <!--trending Catagory-->
+    
+  
+  
+ 
+
+    <div id="products" class="mx-auto">
+        <div class="row">
+            <div class="mx-auto border rounded p-3">
+                {% if invalid %}
+                <div class="alert alert-danger" role="alert"><h3>Invaild information</h3></div>
+                {% endif %}
+                <h2 class="bg-info p-4 border rounded text-center"> <small>Checkout</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="uid"  value="{{user.id}}" hidden ><br>
+                    <input type="text" name="pid" value="{{items.pid}}" hidden><br>
+                    <div class="mb-3 ">
+                    <label for="for_fname"  class="fname">Full Name</label>
+                    <input type="text"  name="full_name" placeholder="Enter your Name" class="form-control form-control-sm" id="for_fname">
+                    </div>
+                        
+                    <div class="mb-3">
+                        <label for="for_address" class="address">Address</label>
+                        <input type="text" name="address" placeholder="Enter full Address" class="form-control form-control-sm" id="for_address">
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="for_town" class="town">Town</label>
+                        <input type="text" name="town" placeholder="Enter Town" class="form-control form-control-sm" id="for_town">
+                    </div>
+    
+    
+                    <div class="mb-3">
+                        <label for="for_phone" class="phone">Phone</label>
+                        <input type="number" name="phone" placeholder="Enter Phone Numeber" class="form-control form-control-sm" id="for_phone">
+                    </div>
+                    
+    
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter Valid Email"  id="exampleInputEmail1" >
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="zip_code" class="zipCode">Zip Code</label>
+                        <input type="text" name="zip_code" placeholder="Enter zip code" class="form-control form-control-sm" id="zip_code">
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="for_comment" class="comment">Comment</label>
+                        <textarea name="comment" class="form-control w-100" id="for_comment" cols="30" rows="5" placeholder="Leave a comment about your order"></textarea>
+                    </div>   
+                    
+                    <div>
+                        <input type="submit" value="Checkout">
+                    </div>
+    
+                </form>
+                <!--
+                    
+                -->
+            </div>
+            
+        </div>
+    </div>
+
+  <!--Product details-->
+    
+
+
+
+
+
+ </div>
+</div>
+    
+{% endblock content %}
+
+
+
