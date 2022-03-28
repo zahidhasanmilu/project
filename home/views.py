@@ -9,11 +9,12 @@ def home(request):
     products = Products.get_all_products()
     catagory = Catagory.get_all_catagories()
     catagoryId = request.GET.get('catagory')
-
     if catagoryId:
         products = Products.get_all_products_by_catagories(catagoryId)
     else:
         products = Products.get_all_products()
+    if "user" in request.session.keys():
+        return render(request, 'home/index.html', context={'item': products, 'catagories': catagory})
     return render(request, 'home/index.html', context={'item': products, 'catagories': catagory})
 
 
