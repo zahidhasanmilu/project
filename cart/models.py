@@ -1,12 +1,15 @@
-# from django.db import models
-# from django.forms import BooleanField
-
-# # Create your models here.
+from django.db import models
 
 
-# class cartItem(models.Model):
-#     cid = models.IntegerField()
-#     uid = models.IntegerField(primary_key=True, auto_created=True)
-#     id = models.IntegerField()
-#     qty = models.SmallIntegerField()
-#     in_cart = models.BooleanField(default=True)
+# Create your models here.
+
+
+class cartItem(models.Model):
+    cid = models.IntegerField(primary_key=True, auto_created=True)
+    uid = models.IntegerField()
+    pid = models.IntegerField()
+    qty = models.SmallIntegerField()
+    in_cart = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.cid)
