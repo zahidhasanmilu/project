@@ -36,8 +36,7 @@ def checkout(request):
                 qty=item.qty
             )
             orders.save()
-            in_cart = False
+            item.in_cart = False
             item.save()
         return redirect('/')
-
     return render(request, 'checkout/checkout.html')
