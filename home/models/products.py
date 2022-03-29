@@ -4,10 +4,10 @@ from home.models.catagory import Catagory
 
 class Products(models.Model):
     pid = models.IntegerField(auto_created=True, primary_key=True)
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=60)
     price = models.FloatField(default=0)
     catagory = models.ForeignKey(Catagory, on_delete=models.CASCADE, default=1)
-    description = models.TextField(max_length=200, null=True, blank=True)
+    description = models.TextField(max_length=500, null=True, blank=True)
     image = models.ImageField(upload_to="media/producct/")
     delivery = models.SmallIntegerField(default='3')
     stock = models.BooleanField(default=True)

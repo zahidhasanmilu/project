@@ -35,10 +35,10 @@
   
  
 
-    <div id="products" class="col-lg-3 mx-auto">
+    <div id="products" class="col-lg-4 mx-auto">
     
         <div class="row">
-            <div class="card mx-0 mb-2 bg-success text-dark bg-opacity-25" style="width: 250PX;">
+            <div class="card mx-0 mb-2 bg-success text-dark bg-opacity-25" style="width: 450PX;height: 515px;">
 
                 <div class="alert alert-info text-center" role="alert">
                     Product Image
@@ -60,7 +60,7 @@
     <div id="products" class="col-lg-3 mx-auto">
         
             <div class="row">
-                <div class="card mx-auto mb-2" style="width: 18rem;">
+                <div class="card mx-auto mb-2" style="width:20rem;height: 32rem;">
                     <div class="alert alert-info text-center" role="alert">
                     Product Details
                     </div>
@@ -76,7 +76,7 @@
                         {% endif %}
                         {% comment %} <p class="card-text">{{items.quantiles }}</p> {% endcomment %}
                          <!-- Add to Cart Form -->
-                         <form class="cart clearfix" action="{% url 'addTocart' %}" method="post">
+                        <form class="cart clearfix" action="{% url 'addTocart' %}" method="post">
                              {% csrf_token %}
                             <div class="cart-btn d-flex mb-50">
                                 <p>Qty</p>
@@ -96,6 +96,11 @@
                             <button type="submit" name="addtocart" value="5" class="btn btn-info">Add to
                                 cart</button>
                         </form>
+                        <div class="description mt-2">
+                            {% comment %} <h6>Description</h6> {% endcomment %}
+                            <p class="card-text">{{items.description}}</p>
+                        </div>
+                        
                     </div>
                 </div>
                 
@@ -103,7 +108,7 @@
     </div>
 
 
-    <div id="products" class="col-lg-3 mx-auto">
+    <div id="products" class="col-lg-2 mx-auto">
         
         <div class="row">
             <div class="card mx-auto mb-2" style="width: 18rem;">

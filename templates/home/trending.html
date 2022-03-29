@@ -38,14 +38,14 @@
   <div id="products" class="col-lg-10 mx-auto">
     <div class="row">
       {% for items in product %}
-      <div class="card mx-auto mb-2" style="width: 18rem;">
-          <img src="{{items.image.url}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
-            <p class="card-text">{{items.price}}</p>
-            <p class="card-text">BDT. {{items.catagory}}</p>
-            <a href="#" class="btn btn-primary">Add To Cart</a>
-          </div>
+      <div class="card mx-0 mb-2 bg-success text-dark bg-opacity-25" style="width: 188px;">
+        <img src="{{ items.image.url }}" width="150" height="170" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
+          <p class="card-text">BDT. {{items.price}}</p>
+          <p class="card-text">{{items.catagory}}</p>
+          <a href="#" class="btn btn-primary">Add To Cart</a>
+        </div>
       </div>
       {% endfor %}        
     </div>

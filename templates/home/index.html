@@ -41,13 +41,17 @@
     
     <div class="row">
       {% for items in item %}
-      <div class="card mx-0 mb-2 bg-success text-dark bg-opacity-25" style="width: 185px;">
-          <img src="{{ items.image.url }}" width="150" height="170" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><h5>{{items.title}}</h5></a>
-            <p class="card-text">BDT. {{items.price}}</p>
-            <p class="card-text">{{items.catagory}}</p>
-            
+      <div class="card mx-0 mb-2 bg-success text-dark bg-black" style="width: 185px;">
+          
+          <a href="{% url 'product_details' items.pid %}"><img src="{{ items.image.url }}" width="160" height="160" class="card-img-top" alt="..."></a> 
+          <div class="fs-card-title mt-2">
+            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" ><p>{{items.title}}</p></a> 
+          </div>
+
+          <div class="fs-card-price">
+            <a href="{% url 'product_details' items.pid %}" class="text-decoration-none" >
+              <p style="color:red">BDT. {{items.price}}</p>
+            </a> 
           </div>
       </div>
       {% endfor %}        
