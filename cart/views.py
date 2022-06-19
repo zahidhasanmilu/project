@@ -8,7 +8,6 @@ from home.models import Products
 
 @login_required
 def cart(request, uid):
-
     cart_item = cartItem.objects.filter(uid=uid, in_cart=True)
     cart_items = []
     cart_total = 0.0

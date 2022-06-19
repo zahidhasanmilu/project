@@ -32,17 +32,20 @@ def trending(request):
 
 
 def search(request):
-    keywords = request.GET.get('keywords').split(' ')
-    results = Products.objects.filter(title__icontains=keywords[0])
-    results = results.union(Products.objects.filter(
-        description__icontains=keywords[0]))
+    # keywords = request.GET.get('keywords').split(' ')
+    # results = Products.objects.filter(title__icontains=keywords[0])
+    # results = results.union(Products.objects.filter(
+    #     description__icontains=keywords[0]))
 
-    for key in keywords:
-        results = Products.objects.filter(title__icontains=key)
-        results = results.union(Products.objects.filter(
-            description__icontains=key))
+    # for key in keywords:
+    #     results = Products.objects.filter(title__icontains=key)
+    #     results = results.union(Products.objects.filter(
+    #         description__icontains=key))
 
-    return render(request, 'home/search_results.html', context={'products': results})
+    if request.method == 'GET':
+        keywords = request.GET.get('keywords')
+        results = Products.objects.filter(title__icontains=keywords)
+        return render(request, 'home/search_results.html', context={'products': results, 'invalid': True})
 
 
 def details(request, pid):

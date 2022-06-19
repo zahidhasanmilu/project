@@ -22,7 +22,7 @@ def signup(request):
                 password=password
             )
             user.save()
-            return redirect('home')
+            return redirect('signin')
         return render(request, 'author/signup.html', context={'invalid': True})
     return render(request, 'author/signup.html')
 
